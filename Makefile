@@ -38,10 +38,10 @@ build:
 	cd backend && dotnet build
 
 run: build
-	@echo "🚀 Starting Cocktail API..."
-	@echo "📍 API will be available at: http://localhost:5000"
-	@echo "📚 Swagger UI: http://localhost:5000/swagger"
-	@echo "⏹️  Press Ctrl+C to stop"
+	@echo "Starting Cocktail API..."
+	@echo "API will be available at: http://localhost:5000"
+	@echo "Swagger UI: http://localhost:5000/swagger"
+	@echo "Press Ctrl+C to stop"
 	cd backend && dotnet run
 
 restore:
@@ -55,87 +55,87 @@ clean:
 
 # Docker Commands
 docker-up:
-	@echo "🐳 Starting SQL Server with Docker..."
-	@echo "📊 Database: CocktailDB"
-	@echo "🔑 SA Password: YourStrong@Passw0rd"
-	@echo "🌐 Port: localhost:1433"
+	@echo "Starting SQL Server with Docker..."
+	@echo "Database: CocktailDB"
+	@echo "SA Password: YourStrong@Passw0rd"
+	@echo "Port: localhost:1433"
 	cd backend && docker compose up -d
-	@echo "⏳ Waiting for SQL Server to be ready..."
+	@echo "Waiting for SQL Server to be ready..."
 	@sleep 10
-	@echo "✅ SQL Server is ready!"
+	@echo "SQL Server is ready!"
 
 docker-down:
-	@echo "🛑 Stopping Docker containers..."
+	@echo "Stopping Docker containers..."
 	cd backend && docker compose down
-	@echo "✅ Containers stopped"
+	@echo "Containers stopped"
 
 docker-logs:
-	@echo "📋 Docker container logs:"
+	@echo "Docker container logs:"
 	cd backend && docker compose logs -f
 
 docker-shell:
-	@echo "🐚 Opening shell in SQL Server container..."
+	@echo "Opening shell in SQL Server container..."
 	docker exec -it cocktail-sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Passw0rd
 
 # Database Commands
 db-setup: docker-up
-	@echo "🗄️  Setting up database..."
-	@echo "📝 Running database creation script..."
+	@echo "Setting up database..."
+	@echo "Running database creation script..."
 	docker exec -i cocktail-sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -i /database/CreateDatabase.sql
-	@echo "✅ Database setup complete!"
+	@echo "Database setup complete!"
 
 db-reset: docker-down
-	@echo "🔄 Resetting database..."
+	@echo "Resetting database..."
 	docker volume rm cocktail-net_sqlserver_data 2>/dev/null || true
-	@echo "✅ Database reset complete. Run 'make db-setup' to recreate."
+	@echo "Database reset complete. Run 'make db-setup' to recreate."
 
 # Testing Commands
 api-test:
-	@echo "🧪 Testing API endpoints..."
-	@echo "⏳ Waiting for API to be ready..."
+	@echo "Testing API endpoints..."
+	@echo "Waiting for API to be ready..."
 	@sleep 5
-	@echo "📍 Testing base endpoint..."
-	@curl -s -o /dev/null -w "Base endpoint: %{http_code}\n" http://localhost:5000/api/cocktail || echo "❌ API not responding"
-	@echo "📚 Testing Swagger endpoint..."
-	@curl -s -o /dev/null -w "Swagger: %{http_code}\n" http://localhost:5000/swagger || echo "❌ Swagger not responding"
-	@echo "🌐 Testing external API fetch..."
-	@curl -s -o /dev/null -w "External API: %{http_code}\n" http://localhost:5000/api/cocktail/fetch-external || echo "❌ External API not responding"
-	@echo "🔍 Testing search endpoint..."
-	@curl -s -o /dev/null -w "Search endpoint: %{http_code}\n" "http://localhost:5000/api/cocktail/search?q=mint" || echo "❌ Search not responding"
+	@echo "Testing base endpoint..."
+	@curl -s -o /dev/null -w "Base endpoint: %{http_code}\n" http://localhost:5000/api/cocktail || echo "API not responding"
+	@echo "Testing Swagger endpoint..."
+	@curl -s -o /dev/null -w "Swagger: %{http_code}\n" http://localhost:5000/swagger || echo "Swagger not responding"
+	@echo "Testing external API fetch..."
+	@curl -s -o /dev/null -w "External API: %{http_code}\n" http://localhost:5000/api/cocktail/fetch-external || echo "External API not responding"
+	@echo "Testing search endpoint..."
+	@curl -s -o /dev/null -w "Search endpoint: %{http_code}\n" "http://localhost:5000/api/cocktail/search?q=mint" || echo "Search not responding"
 	@echo ""
-	@echo "✅ API test completed!"
-	@echo "🌐 Visit http://localhost:5000/swagger for interactive documentation"
+	@echo "API test completed!"
+	@echo "Visit http://localhost:5000/swagger for interactive documentation"
 
 test:
-	@echo "🧪 Running unit tests..."
+	@echo "Running unit tests..."
 	cd backend && dotnet test
 
 # Code Quality Commands
 format:
-	@echo "✨ Formatting code..."
+	@echo "Formatting code..."
 	cd backend && dotnet format
 
 lint:
-	@echo "🔍 Checking code format..."
+	@echo "Checking code format..."
 	cd backend && dotnet format --verify-no-changes
 
 watch:
-	@echo "👀 Running with file watching (hot reload)..."
+	@echo "Running with file watching (hot reload)..."
 	cd backend && dotnet watch run
 
 # Full Development Setup
 dev-setup: restore build docker-up db-setup
 	@echo ""
-	@echo "🎉 Development environment is ready!"
-	@echo "🚀 Run 'make run' to start the API"
-	@echo "📚 Visit http://localhost:5000/swagger for API docs"
-	@echo "🐳 SQL Server is running on localhost:1433"
+	@echo "Development environment is ready!"
+	@echo "Run 'make run' to start the API"
+	@echo "Visit http://localhost:5000/swagger for API docs"
+	@echo "SQL Server is running on localhost:1433"
 
 # Production-like setup (without Docker)
 prod-setup: restore build
 	@echo ""
-	@echo "🏭 Production build ready!"
-	@echo "📝 Remember to:"
+	@echo "Production build ready!"
+	@echo "Remember to:"
 	@echo "  1. Set up SQL Server manually"
 	@echo "  2. Run Database/CreateDatabase.sql"
 	@echo "  3. Update connection string in appsettings.json"
@@ -146,14 +146,14 @@ dev: dev-setup run
 
 # Show current status
 status:
-	@echo "📊 Current Status:"
-	@echo "🐳 Docker containers:"
+	@echo "Current Status:"
+	@echo "Docker containers:"
 	@docker-compose ps 2>/dev/null || echo "   Docker Compose not available"
-	@echo "🔌 API status:"
-	@curl -s -o /dev/null -w "   HTTP: %{http_code}\n" http://localhost:5000/api/cocktail 2>/dev/null || echo "   ❌ Not running"
-	@echo "🗄️  Database connection:"
-	@docker exec cocktail-sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q "SELECT 'Connected' as Status" 2>/dev/null | grep "Connected" || echo "   ❌ Not connected"
+	@echo "API status:"
+	@curl -s -o /dev/null -w "   HTTP: %{http_code}\n" http://localhost:5000/api/cocktail 2>/dev/null || echo "   Not running"
+	@echo "Database connection:"
+	@docker exec cocktail-sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q "SELECT 'Connected' as Status" 2>/dev/null | grep "Connected" || echo "   Not connected"
 
 # Clean everything
 clean-all: clean docker-down
-	@echo "🧹 Cleaned everything including Docker containers" 
+	@echo "Cleaned everything including Docker containers" 

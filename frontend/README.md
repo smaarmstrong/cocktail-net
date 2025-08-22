@@ -2,7 +2,7 @@
 
 A React TypeScript application for fetching and displaying random cocktails from TheCocktailDB API.
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 src/
@@ -11,17 +11,17 @@ src/
 │   ├── RandomCocktailButton.tsx # Orange→yellow hover button
 │   ├── ErrorMessage.tsx         # Error display component
 │   └── index.ts                 # Component exports
-├── screens/             # 🖥️ Page-level components
+├── screens/             # Page-level components
 │   └── RandomCocktailScreen.tsx # Main cocktail display screen
-├── hooks/               # 🪝 Custom React hooks
+├── hooks/               # Custom React hooks
 │   └── useCocktail.ts           # State management logic
-├── services/            # 🔌 API & business logic
+├── services/            # API & business logic
 │   └── cocktailApi.ts           # External API calls
-├── types/               # 📝 TypeScript definitions
+├── types/               # TypeScript definitions
 │   └── cocktail.ts              # Cocktail interface
-├── utils/               # 🛠️ Utilities & constants
-├── App.tsx              # 🎯 Main app component
-└── main.tsx             # 🚀 Application entry point
+├── utils/               # Utilities & constants
+├── App.tsx              # Main app component
+└── main.tsx             # Application entry point
 ```
 
 ## 🎨 Features
@@ -33,7 +33,7 @@ src/
 - **Error Handling**: User-friendly error messages
 - **Responsive Design**: Works on all screen sizes
 
-## 🚀 Development
+## Development
 
 ```bash
 # Install dependencies
@@ -49,7 +49,7 @@ bun run build
 bun run preview
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 19** - Modern React with latest features
 - **TypeScript** - Type-safe development

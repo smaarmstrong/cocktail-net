@@ -1,6 +1,6 @@
-# 🏗️ Cocktail API Architecture Explained
+# Cocktail API Architecture Explained
 
-## 🎯 **What This Application Does**
+## **What This Application Does**
 
 This is a **Web API** that manages cocktail recipes. Think of it as a digital recipe book that:
 - Stores cocktail recipes in a database
@@ -8,7 +8,7 @@ This is a **Web API** that manages cocktail recipes. Think of it as a digital re
 - Fetches new recipes from an external website
 - Provides a REST API that other applications can use
 
-## 🔄 **How Data Flows Through the System**
+## **How Data Flows Through the System**
 
 ```
 Client Request → Controller → Service → Data Layer → SQL Server
@@ -26,9 +26,9 @@ Response ← Controller ← Service ← Data Layer ← Stored Procedure
 7. **Service** applies any business logic
 8. **Controller** returns the data as JSON to the client
 
-## 🏛️ **Architecture Layers (Clean Architecture)**
+## **Architecture Layers (Clean Architecture)**
 
-### **1. Controllers Layer** 📡
+### **1. Controllers Layer**
 - **Purpose**: Handle HTTP requests and responses
 - **Files**: `CocktailController.cs`
 - **What it does**: 
@@ -37,7 +37,7 @@ Response ← Controller ← Service ← Data Layer ← Stored Procedure
   - Calls appropriate services
   - Returns HTTP responses
 
-### **2. Services Layer** ⚙️
+### **2. Services Layer**
 - **Purpose**: Contains business logic
 - **Files**: `ICocktailService.cs`, `CocktailService.cs`
 - **What it does**:
@@ -45,7 +45,7 @@ Response ← Controller ← Service ← Data Layer ← Stored Procedure
   - Applies business rules
   - Orchestrates multiple operations
 
-### **3. Data Layer** 🗄️
+### **3. Data Layer**
 - **Purpose**: Handles all database operations
 - **Files**: `IDatabaseService.cs`, `DatabaseService.cs`
 - **What it does**:
@@ -53,7 +53,7 @@ Response ← Controller ← Service ← Data Layer ← Stored Procedure
   - Converts database results to C# objects
   - Manages database connections
 
-### **4. Models Layer** 📋
+### **4. Models Layer**
 - **Purpose**: Defines data structures
 - **Files**: `Cocktail.cs`, `Ingredient.cs`
 - **What it does**:
@@ -92,7 +92,7 @@ public async Task<ActionResult<Cocktail>> GetCocktailById(int id)
 [ApiController]     // This is an API controller
 ```
 
-## 🗄️ **Database Design**
+## **Database Design**
 
 ### **Tables:**
 - **Cocktails**: Main cocktail information
@@ -110,14 +110,14 @@ public async Task<ActionResult<Cocktail>> GetCocktailById(int id)
 - `sp_DeleteCocktail` - Remove cocktail
 - `sp_SearchCocktails` - Find cocktails by search term
 
-## 🌐 **External API Integration**
+## **External API Integration**
 
 The app also talks to [TheCocktailDB](https://www.thecocktaildb.com/) to:
 - Fetch random cocktail recipes
 - Get new drink ideas
 - Expand the recipe collection
 
-## 🚀 **Why This Architecture?**
+## **Why This Architecture?**
 
 ### **Benefits:**
 1. **Separation of Concerns**: Each layer has one job
@@ -132,7 +132,7 @@ Think of it like a restaurant:
 - **Data Layer** = Storage room (get ingredients, store leftovers)
 - **Models** = Recipe cards (define what each dish should look like)
 
-## 🔍 **Where to Start Learning**
+## **Where to Start Learning**
 
 1. **Start with Models** - Understand what data looks like
 2. **Look at Controllers** - See how HTTP requests are handled

@@ -71,7 +71,7 @@ public class MyService
 }
 ```
 
-## 🚀 Environment-Specific Configuration:
+## Environment-Specific Configuration:
 
 You can have different configuration files for different environments:
 - `appsettings.Development.json` - Development settings

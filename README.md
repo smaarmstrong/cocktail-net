@@ -2,7 +2,7 @@
 
 A full-stack cocktail application with a .NET Web API backend and React TypeScript frontend.
 
-## 🏗️ Project Overview
+## Project Overview
 
 This project consists of two main parts:
 
@@ -32,7 +32,7 @@ cocktail-net/
 └── Makefile              # Development automation
 ```
 
-## 🏗️ **Project Structure Explained (For .NET Beginners)**
+## **Project Structure Explained (For .NET Beginners)**
 
 This project follows the **Clean Architecture** pattern, which separates concerns into different layers. Here's what each file and folder does:
 
