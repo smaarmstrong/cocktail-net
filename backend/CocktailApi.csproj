@@ -1,0 +1,62 @@
+<!-- ============================================================================
+     PROJECT FILE - Application Configuration
+     ============================================================================
+     This file tells .NET what type of application this is and what it needs to run.
+     Think of it as the "recipe" or "blueprint" for building your application.
+     
+     Key concepts:
+     - Sdk: What type of application (.NET Web API)
+     - TargetFramework: Which version of .NET to use
+     - PackageReference: External libraries (NuGet packages) your app needs
+     ============================================================================ -->
+
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <!-- This tells .NET this is a web application, not a console app or library -->
+
+  <!-- ============================================================================
+       PROJECT PROPERTIES
+       ============================================================================ -->
+  <PropertyGroup>
+    <!-- TargetFramework: Which version of .NET to use -->
+    <!-- net8.0 = .NET 8.0 (latest stable version as of 2024) -->
+    <TargetFramework>net8.0</TargetFramework>
+    
+    <!-- Nullable: Enable null safety features -->
+    <!-- This helps catch bugs where you might try to use a null value -->
+    <Nullable>enable</Nullable>
+    
+    <!-- ImplicitUsings: Automatically include common .NET namespaces -->
+    <!-- This means you don't have to write "using System;" everywhere -->
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- ============================================================================
+       EXTERNAL DEPENDENCIES (NuGet Packages)
+       ============================================================================ -->
+  <!-- These are libraries that other people have written that we can use -->
+  <!-- .NET will automatically download these when you run "dotnet restore" -->
+  
+  <ItemGroup>
+    <!-- ASP.NET Core OpenAPI - Enables Swagger documentation -->
+    <!-- Swagger creates beautiful, interactive API documentation -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
+    
+    <!-- Entity Framework Core for SQL Server - Database access -->
+    <!-- This lets us work with SQL Server databases using C# code -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    
+    <!-- Entity Framework Tools - Database migration commands -->
+    <!-- Provides commands like "dotnet ef migrations add" -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" />
+    
+    <!-- Swashbuckle - Generates Swagger documentation -->
+    <!-- This creates the /swagger endpoint you can visit in your browser -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    
+    <!-- SQL Client - Direct SQL Server access -->
+    <!-- We use this to call stored procedures directly -->
+    <!-- Note: This package has a security vulnerability - consider using Microsoft.Data.SqlClient instead -->
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+</Project> 
