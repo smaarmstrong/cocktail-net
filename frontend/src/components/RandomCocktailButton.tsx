@@ -20,7 +20,7 @@ export const RandomCocktailButton: React.FC<RandomCocktailButtonProps> = ({ onCl
       // transition-all duration-300 = smooth color change
       // hover:scale-105 = slightly bigger on hover
       // disabled:opacity-50 = half transparent when disabled
-      className="px-8 py-4 bg-orange-500 hover:bg-yellow-400 text-white font-bold text-xl rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+      className="px-8 py-4 bg-orange-500 hover:bg-yellow-400 text-black font-bold text-xl rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
     >
               {/* Show different text based on loading state */}
       {loading ? 'Loading...' : 'Random Cocktail'}
