@@ -49,7 +49,7 @@ export const CocktailDisplay: React.FC<CocktailDisplayProps> = ({ cocktail, load
           alt={cocktail.strDrink}
           className="w-80 h-80 object-cover rounded-lg shadow-2xl border-4 border-white"
         />
-        <h2 className="text-2xl font-semibold text-white text-center">
+        <h2 className="text-2xl font-semibold text-black text-center">
           {cocktail.strDrink}
         </h2>
       </div>
